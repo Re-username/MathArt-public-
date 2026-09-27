@@ -1,0 +1,521 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===== MathArt cyberpunk theme ===== */
+
+.theme-dark {
+  --cy-bg: #000000;
+  --cy-panel: rgba(20, 20, 24, 0.94);
+  --cy-border: #2a2a32;
+  --cy-text: #ebebeb;
+  --cy-dim: #8a8a93;
+  --cy-accent: #2cc9ff;
+  --cy-accent2: #a2db3c;
+  --cy-danger: #ff3b5c;
+  --cy-blood: #a4001e;
+  --cy-input-bg: rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+.theme-light {
+  --cy-bg: #f5f4f2;
+  --cy-panel: rgba(255, 255, 255, 0.95);
+  --cy-border: #d8d6d2;
+  --cy-text: #16161a;
+  --cy-dim: #5c5c66;
+  --cy-accent: #d91f3c;
+  --cy-accent2: #4a7a12;
+  --cy-danger: #a31225;
+  --cy-blood: #a4001e;
+  --cy-input-bg: rgba(255, 255, 255, 0.85);
+  color-scheme: light;
+}
+
+.app-root {
+  min-height: 100vh;
+  background: var(--cy-bg);
+  color: var(--cy-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.cy-mono {
+  font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", monospace;
+}
+
+.cy-label {
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cy-dim);
+  white-space: nowrap;
+}
+
+/* Windows: square corners + accent corner brackets */
+.cy-panel {
+  position: relative;
+  background: var(--cy-panel);
+  border: 1px solid var(--cy-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.cy-panel::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--cy-accent), var(--cy-accent)) left 0 top 0 / 12px 2px,
+    linear-gradient(var(--cy-accent), var(--cy-accent)) left 0 top 0 / 2px 12px,
+    linear-gradient(var(--cy-accent), var(--cy-accent)) right 0 top 0 / 12px 2px,
+    linear-gradient(var(--cy-accent), var(--cy-accent)) right 0 top 0 / 2px 12px,
+    linear-gradient(var(--cy-accent), var(--cy-accent)) left 0 bottom 0 / 12px 2px,
+    linear-gradient(var(--cy-accent), var(--cy-accent)) left 0 bottom 0 / 2px 12px,
+    linear-gradient(var(--cy-accent), var(--cy-accent)) right 0 bottom 0 / 12px 2px,
+    linear-gradient(var(--cy-accent), var(--cy-accent)) right 0 bottom 0 / 2px 12px;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+}
+
+/* Chamfered controls: cut top-right + bottom-left corners */
+.cy-chamfer {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 9px) 0,
+    100% 9px,
+    100% 100%,
+    9px 100%,
+    0 calc(100% - 9px)
+  );
+}
+
+.cy-btn {
+  border: 1px solid var(--cy-border);
+  background: color-mix(in srgb, var(--cy-border) 25%, transparent);
+  color: var(--cy-text);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.cy-btn:hover:not(:disabled) {
+  color: var(--cy-accent);
+  background: color-mix(in srgb, var(--cy-accent) 14%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--cy-accent) 35%, transparent);
+}
+.cy-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cy-btn-primary {
+  border: 1px solid var(--cy-accent);
+  background: color-mix(in srgb, var(--cy-accent) 16%, transparent);
+  color: var(--cy-accent);
+  cursor: pointer;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--cy-accent) 70%, transparent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--cy-accent) 30%, transparent),
+    inset 0 0 10px color-mix(in srgb, var(--cy-accent) 12%, transparent);
+  transition: box-shadow 0.15s, background 0.15s;
+}
+.cy-btn-primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--cy-accent) 26%, transparent);
+  box-shadow: 0 0 26px color-mix(in srgb, var(--cy-accent) 55%, transparent),
+    inset 0 0 16px color-mix(in srgb, var(--cy-accent) 20%, transparent);
+}
+.cy-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cy-seg {
+  border: 1px solid var(--cy-border);
+  background: transparent;
+  color: var(--cy-dim);
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6875rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.cy-seg:hover:not(:disabled) {
+  color: var(--cy-text);
+  background: color-mix(in srgb, var(--cy-accent) 10%, transparent);
+}
+.cy-seg[data-active="true"] {
+  border-color: var(--cy-accent);
+  color: var(--cy-accent);
+  background: color-mix(in srgb, var(--cy-accent) 14%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--cy-accent) 30%, transparent);
+}
+.cy-seg:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cy-check {
+  border: 1px solid var(--cy-border);
+  background: transparent;
+  color: var(--cy-dim);
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  padding: 4px 14px;
+  min-width: 64px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.cy-check[data-on="true"] {
+  border-color: var(--cy-accent2);
+  color: var(--cy-accent2);
+  background: color-mix(in srgb, var(--cy-accent2) 12%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--cy-accent2) 30%, transparent);
+}
+
+.cy-input {
+  background: var(--cy-input-bg);
+  border: 1px solid var(--cy-border);
+  color: var(--cy-text);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.cy-input:focus {
+  border-color: var(--cy-accent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--cy-accent) 35%, transparent);
+}
+.cy-input::placeholder {
+  color: var(--cy-dim);
+  opacity: 0.6;
+}
+
+/* Native number spinners hidden — external cyberpunk steppers used instead */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.cy-step {
+  border: 1px solid var(--cy-border);
+  background: color-mix(in srgb, var(--cy-border) 25%, transparent);
+  color: var(--cy-accent);
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  width: 26px;
+  height: 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.12s;
+}
+.cy-step:hover {
+  background: color-mix(in srgb, var(--cy-accent) 20%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--cy-accent) 40%, transparent);
+}
+.cy-step:active {
+  transform: translateY(1px);
+}
+
+/* One-shot glitch shake on hover — sharp interference jitter */
+@keyframes cyGlitch {
+  0% { transform: translate(0, 0); }
+  18% { transform: translate(-3px, 1px); }
+  36% { transform: translate(2px, -2px); }
+  54% { transform: translate(-2px, -1px); }
+  72% { transform: translate(3px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+.cy-btn:hover:not(:disabled),
+.cy-btn-primary:hover:not(:disabled),
+.cy-seg:hover:not(:disabled),
+.cy-check:hover {
+  animation: cyGlitch 0.22s steps(2, end) 1;
+}
+
+.cy-range {
+  accent-color: var(--cy-accent);
+}
+input[type="range"].cy-range {
+  clip-path: none;
+}
+
+.cy-title {
+  color: var(--cy-accent);
+  text-shadow:
+    0 0 12px color-mix(in srgb, var(--cy-accent) 80%, transparent),
+    0 0 48px color-mix(in srgb, var(--cy-accent) 45%, transparent),
+    0 0 90px color-mix(in srgb, var(--cy-accent) 25%, transparent);
+}
+
+/* Menu background: grid + moving light wave */
+.cy-menu-bg {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(var(--cy-grid-line, rgba(44, 201, 255, 0.05)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cy-grid-line, rgba(44, 201, 255, 0.05)) 1px, transparent 1px),
+    var(--cy-bg);
+  background-size: 48px 48px, 48px 48px, 100% 100%;
+}
+.theme-light .cy-menu-bg {
+  --cy-grid-line: rgba(150, 20, 40, 0.07);
+}
+.cy-menu-bg::before {
+  content: "";
+  position: absolute;
+  width: 140vmax;
+  height: 140vmax;
+  left: -20vmax;
+  top: -20vmax;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--cy-accent) 14%, transparent) 0%,
+    color-mix(in srgb, var(--cy-accent) 5%, transparent) 30%,
+    transparent 60%
+  );
+  animation: cyWave 16s ease-in-out infinite alternate;
+}
+.cy-menu-bg > * {
+  position: relative;
+  z-index: 1;
+}
+@keyframes cyWave {
+  0% { transform: translate(-12vw, -8vh) scale(1); }
+  33% { transform: translate(10vw, 6vh) scale(1.15); }
+  66% { transform: translate(-6vw, 10vh) scale(0.92); }
+  100% { transform: translate(12vw, -6vh) scale(1.08); }
+}
+
+.cy-scanlines::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.018) 0px,
+    rgba(255, 255, 255, 0.018) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+@keyframes cyBannerIn {
+  0% { opacity: 0; transform: scale(0.85); letter-spacing: 0.6em; }
+  15% { opacity: 1; transform: scale(1); }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.cy-banner {
+  animation: cyBannerIn 1.6s ease forwards;
+  text-shadow: 0 0 18px currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+}
+
+@keyframes cyWinIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.cy-win {
+  animation: cyWinIn 0.35s ease-out;
+  box-shadow: 0 0 60px color-mix(in srgb, var(--cy-accent2) 25%, transparent);
+}
+
+/* Blood splash on damage / death */
+@keyframes cyBlood {
+  0% { opacity: 0; }
+  12% { opacity: 1; }
+  70% { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+.cy-blood-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 30%, color-mix(in srgb, var(--cy-blood) 55%, transparent) 75%, var(--cy-blood) 100%),
+    linear-gradient(color-mix(in srgb, var(--cy-blood) 25%, transparent), color-mix(in srgb, var(--cy-blood) 25%, transparent));
+}
+.cy-blood-overlay.active {
+  animation: cyBlood 1.4s ease-out forwards;
+}
+
+/* Copy-code textareas in network lobby */
+.cy-code {
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  word-break: break-all;
+  user-select: all;
+}
+
+/* Chamfered control geometry — inset glow survives clip-path */
+.cy-btn,
+.cy-btn-primary,
+.cy-seg,
+.cy-check,
+.cy-input,
+.cy-step {
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+}
+.cy-btn:hover:not(:disabled) {
+  box-shadow: inset 0 0 12px color-mix(in srgb, var(--cy-accent) 30%, transparent);
+}
+.cy-btn-primary {
+  box-shadow: inset 0 0 10px color-mix(in srgb, var(--cy-accent) 15%, transparent);
+}
+.cy-btn-primary:hover:not(:disabled) {
+  box-shadow: inset 0 0 18px color-mix(in srgb, var(--cy-accent) 30%, transparent);
+}
+.cy-seg[data-active="true"] {
+  box-shadow: inset 0 0 8px color-mix(in srgb, var(--cy-accent) 25%, transparent);
+}
+
+/* Чип игрока в панели матча: в hot-seat подсветка только по наведению,
+   в сетевой игре (.cy-chip-on) — постоянная (это информация о своём ходе) */
+.cy-chip .cy-chip-dot {
+  transition: box-shadow 0.15s;
+}
+.cy-chip:hover .cy-chip-dot,
+.cy-chip.cy-chip-on .cy-chip-dot {
+  box-shadow: 0 0 10px var(--chip-color);
+}
+.cy-chip .cy-chip-name {
+  transition: color 0.15s;
+}
+.cy-chip:hover .cy-chip-name,
+.cy-chip.cy-chip-on .cy-chip-name {
+  color: var(--chip-color);
+  font-weight: 700;
+}
+.cy-check[data-on="true"] {
+  box-shadow: inset 0 0 8px color-mix(in srgb, var(--cy-accent2) 25%, transparent);
+}
+.cy-input:focus {
+  box-shadow: inset 0 0 10px color-mix(in srgb, var(--cy-accent) 25%, transparent);
+}
+.cy-step:hover {
+  box-shadow: inset 0 0 10px color-mix(in srgb, var(--cy-accent) 30%, transparent);
+}
+
+/* Scrollbars hidden everywhere — popups and panels scroll without visible sliders */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* Canvas grab cursor while panning a zoomed map */
+.cy-canvas-pan {
+  cursor: grab;
+}
+.cy-canvas-pan.panning {
+  cursor: grabbing;
+}
+
+/* MATHART title: per-letter flicker + glitch */
+@keyframes cy-letter-flicker {
+  0%, 100% { opacity: 1; }
+  2.5% { opacity: 0.35; }
+  4.5% { opacity: 1; }
+  5.5% { opacity: 0.7; }
+  7% { opacity: 1; }
+  41% { opacity: 1; }
+  42% { opacity: 0.5; }
+  43.5% { opacity: 1; }
+  70% { opacity: 1; }
+  70.8% { opacity: 0.8; }
+  71.6% { opacity: 1; }
+}
+.cy-title-letter {
+  display: inline-block;
+  animation: cy-letter-flicker 4s linear infinite;
+  will-change: opacity, transform;
+}
+.cy-title-letter.cy-glitching {
+  animation: none;
+  transform: translate(1.5px, -2px) skewX(-14deg);
+  color: var(--cy-warn);
+  text-shadow: -2px 0 var(--cy-accent), 2px 0 rgba(255, 45, 120, 0.9);
+}
